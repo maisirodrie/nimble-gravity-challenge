@@ -18,11 +18,11 @@ export async function getJobsList() {
   return res.json()
 }
 
-export async function applyToJob({ uuid, jobId, candidateId, repoUrl }) {
+export async function applyToJob({ uuid, jobId, candidateId, applicationId, repoUrl }) {
   const res = await fetch(`${BASE_URL}/api/candidate/apply-to-job`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ uuid, jobId, candidateId, repoUrl }),
+    body: JSON.stringify({ uuid, jobId, candidateId, applicationId, repoUrl }),
   })
   const data = await res.json().catch(() => ({}))
   if (!res.ok) {
